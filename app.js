@@ -2,8 +2,15 @@ const express = require('express');
 const { success } = require('./helper.js')
 const app = express()
 const port = 3000
-
 let pokemons =  require('./mock-pokemons'); 
+const morgan = require('morgan')
+const favicon = require('serve-favicon')
+
+
+app
+    .use(favicon(__dirname + '/favicon.ico'))
+    .use(morgan('dev'))
+
 
 app.get('/',(req,res) => res.send('Hello, Express 88!'))
 
@@ -20,5 +27,4 @@ app.get('/api/pokemons', (req,res) => {
 
 app.listen(port, () => console.log(`Notre application Node est démarrée sur : http://localhost:${port}`))
 
-console.log('hello world');
 
