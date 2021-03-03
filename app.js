@@ -2,11 +2,33 @@ const express = require('express');
 const { success } = require('./helper.js')
 const { getUniqueId } = require('./helper.js')
 const bodyParser = require('body-parser')
+const { Sequelize } = require('sequelize')
 const app = express()
 const port = 3000
 let pokemons =  require('./mock-pokemons'); 
 const morgan = require('morgan')
 const favicon = require('serve-favicon')
+
+/**
+ * configuration Sequelize
+ */
+const sequelize = new Sequelize(
+    'pokedex',
+    'root',
+    '',
+    {
+        host:'localhost', 
+        dialect:'mariadb',
+        dialectOptions: {
+            timezone: 'Etc/GMT-2'
+        },
+        logging: false
+    }
+)
+
+sequelize.authenticate()
+    .then(_ => console.log('la connexion à la base de données a bien été faite'))
+    .catch(error => console.error(`Impossible de se connecter à la base de données ${error}`))
 
 /**
  * Utilisation des middlewares
