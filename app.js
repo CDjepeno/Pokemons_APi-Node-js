@@ -5,7 +5,6 @@ const port = 3000;
 const morgan = require('morgan');
 const favicon = require('serve-favicon');
 const sequelize = require('./src/database/sequelize');
-const { urlencoded } = require('body-parser');
 
 
 /**
@@ -19,7 +18,7 @@ sequelize.initDb()
 app
     .use(favicon(__dirname + '/favicon.ico'))
     .use(morgan('dev'))
-    .use(bodyParser.urlencoded())
+    .use(bodyParser.json())
 
 /**
  * Déclaration des points de terminaison
