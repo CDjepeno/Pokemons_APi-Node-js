@@ -4,7 +4,6 @@ const { Pokemon } = require('../database/sequelize');
 module.exports = (app) => {
     app.post('/api/pokemons',(req,res) => {
 
-        console.log(req.body);
         Pokemon.create(req.body)
         .then(pokemon => {
             const message = `Le pokemon ${req.body.name} a bien été crée`
