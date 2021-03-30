@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 const morgan = require('morgan');
@@ -18,7 +17,7 @@ sequelize.initDb()
 app
     .use(favicon(__dirname + '/favicon.ico'))
     .use(morgan('dev'))
-    .use(bodyParser.json())
+    .use(express.urlencoded())
 
 /**
  * Déclaration des points de terminaison

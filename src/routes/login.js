@@ -23,8 +23,7 @@ module.exports = (app) => {
                     )
                     const message = "L'utilisateur a été connecté avec succès"
                     return res.json({ message, data: user, token })
-                } else {
-                   
+                } else {  
                     const message = "Le mot de passe est incorrect."
                     return res.status(401).json({ message, data: user })
                 }
