@@ -17,7 +17,7 @@ sequelize.initDb()
 app
     .use(favicon(__dirname + '/favicon.ico'))
     .use(morgan('dev'))
-    .use(express.urlencoded())
+    .use(express.json())
 
 /**
  * Déclaration des points de terminaison
@@ -28,6 +28,7 @@ require('./src/routes/createPokemon')(app)
 require('./src/routes/updatePokemon')(app)
 require('./src/routes/deletePokemon')(app)
 require('./src/routes/login')(app)
+require('./src/routes/register')(app)
 
 /**
  * Erreur 404
