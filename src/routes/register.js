@@ -22,16 +22,3 @@ module.exports = (app) => {
     })
 }
 
-
-
-
-
-// bcrypt.hash('pikachu', 10)
-//     .then(hash => {
-//       User.create({
-//         username: "pikachu",
-//         password: hash
-//       })
-//     })
-//     .then(user => console.log("ok"))
-  
